@@ -13,10 +13,15 @@ const app = express();
 const port = 3000;
 
 const corsOptions = {
-    // origin: "http://localhost:5173",
-    origin: "https://dancing-taffy-7b654f.netlify.app",
-    methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
+    origin: [
+        "https://dancing-taffy-7b654f.netlify.app",
+        "https://dancing-taffy-7b654f.netlify.app/"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
     credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+    exposedHeaders: ["Content-Range", "X-Content-Range"],
+    maxAge: 86400 // 24 hours
 }
 
 app.use(cors(corsOptions));
