@@ -15,7 +15,8 @@ const port = 3000;
 const corsOptions = {
     origin: [
         "https://dancing-taffy-7b654f.netlify.app",
-        "https://dancing-taffy-7b654f.netlify.app/"
+        // "https://dancing-taffy-7b654f.netlify.app/"
+        "http://localhost:5173"
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
     credentials: true,
