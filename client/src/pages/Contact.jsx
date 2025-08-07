@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../store/auth";
 
 const defaultContactForm = {
-    username: "",
-    email: "",
-    message: "",
+  username: "",
+  email: "",
+  message: "",
 }
 
 export const Contact = () => {
@@ -40,7 +40,7 @@ export const Contact = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/api/form/contact", {
+      const response = await fetch("https://mern-project-vlr7.onrender.com/api/form/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +53,7 @@ export const Contact = () => {
         const data = await response.json();
         console.log(data);
         alert("Message sent Successfully");
-        
+
       }
     } catch (error) {
       alert("Message not send");

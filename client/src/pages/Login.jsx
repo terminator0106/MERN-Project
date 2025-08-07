@@ -28,14 +28,14 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/api/auth/login", {
+      const response = await fetch("https://mern-project-vlr7.onrender.com/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(user),
       });
-      
+
       const responseData = await response.json();
       console.log("after login: ", responseData);
 
@@ -46,7 +46,7 @@ export const Login = () => {
         toast.success("Login Successfull");
         navigate("/");
       }
-      else{
+      else {
         toast.error(responseData.extraDetails ? responseData.extraDetails : responseData.message);
         console.log("Invalid Credentials");
       }

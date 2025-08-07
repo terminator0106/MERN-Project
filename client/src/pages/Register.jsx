@@ -31,14 +31,14 @@ export const Register = () => {
     console.log(user);
 
     try {
-      const response = await fetch("http://localhost:3000/api/auth/register", {
+      const response = await fetch("https://mern-project-vlr7.onrender.com/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(user),
       });
-      
+
 
       const responseData = await response.json();
       console.log("res from server", responseData.extraDetails);
@@ -48,7 +48,7 @@ export const Register = () => {
         setUser({ username: "", email: "", contact: "", password: "" });
         toast.success("Registration Successfully");
         navigate("/");
-        
+
       } else {
         toast.error(responseData.extraDetails ? responseData.extraDetails : responseData.message);
       }
