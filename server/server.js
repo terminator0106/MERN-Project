@@ -13,7 +13,8 @@ const app = express();
 const port = 3000;
 
 const corsOptions = {
-    origin: "http://localhost:5173",
+    // origin: "http://localhost:5173",
+    origin: "https://dancing-taffy-7b654f.netlify.app/",
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
 }
@@ -21,14 +22,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.use("/api/auth",authRouter);
-app.use("/api/form",contactRoute);
-app.use("/api/data",serviceRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/form", contactRoute);
+app.use("/api/data", serviceRouter);
 
 app.use(errorMiddleware);
 
 connectDB().then(() => {
-    app.listen(port , () => {
+    app.listen(port, () => {
         console.log(`Server is running at post ${port}`);
     });
 });
